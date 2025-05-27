@@ -1,5 +1,3 @@
-/* For information on how to create your own theme, please see:
-http://ionicframework.com/docs/theming/ */
 
 /*---colors---*/
 :root {
@@ -106,8 +104,19 @@ http://ionicframework.com/docs/theming/ */
     --color-icon-grey-light: #9999A8;
     --color-icon-grey-default: #7E7E90;
     --color-icon-grey-placeholder: #9999A8;
+
+    /*--Sizes--*/
+    --size-xxs: 10px;
+    --size-xs: 12px;
+    --size-sm: 14px;
+    --size-md: 16px;
+    --size-lg: 18px;
+    --size-xl: 20px;
+    --size-2xl: 24px;
+    --size-3xl: 32px;
 }
 
+/*---fonts---*/
 @font-face {
   font-family: 'Fotext-Regular';
   src: url('@/assets/fonts/fotext-regular.otf') format('opentype');
@@ -136,80 +145,36 @@ http://ionicframework.com/docs/theming/ */
   font-style: italic;
 }
 
-/*---fonts---*/
-:root {
-    /*--Heading--*/
-  --font-heading-3xl: 'Fotext-Bold', sans-serif;
-  --font-heading-3xl-size: 32px;
-  --font-heading-3xl-line-height: 32px;
-
-  --font-heading-2xl: 'Fotext-Bold', sans-serif;
-  --font-heading-2xl-size: 24px;
-  --font-heading-2xl-line-height: 24px;
-
-  --font-heading-xl: 'Fotext-Bold', sans-serif;
-  --font-heading-xl-size: 20px;
-  --font-heading-xl-line-height: 24px;
-
-    /*--Paragraph--*/
-  --font-paragraph-lg-regular: 'Fotext-Regular', sans-serif;
-  --font-paragraph-lg-regular-size: 18px;
-  --font-paragraph-lg-regular-line-height: 24px;
-
-  --font-paragraph-lg-strong: 'Fotext-Bold', sans-serif;
-  --font-paragraph-lg-strong-size: 18px;
-  --font-paragraph-lg-strong-line-height: 24px;
-
-  --font-paragraph-base-regular: 'Fotext-Regular', sans-serif;
-  --font-paragraph-base-regular-size: 16px;
-  --font-paragraph-base-regular-line-height: 20px;
-
-  --font-paragraph-base-strong: 'Fotext-Bold', sans-serif;
-  --font-paragraph-base-strong-size: 16px;
-  --font-paragraph-base-strong-line-height: 20px;
-
-  --font-paragraph-sm-regular: 'Fotext-Regular', sans-serif;
-  --font-paragraph-sm-regular-size: 14px;
-  --font-paragraph-sm-regular-line-height: 16px;
-
-  --font-paragraph-sm-strong: 'Fotext-Bold', sans-serif;
-  --font-paragraph-sm-strong-size: 14px;
-  --font-paragraph-sm-strong-line-height: 16px;
-
-  --font-paragraph-xs-regular: 'Fotext-Regular', sans-serif;
-  --font-paragraph-xs-regular-size: 12px;
-  --font-paragraph-xs-regular-line-height: 16px;
-
-  --font-paragraph-xs-strong: 'Fotext-Bold', sans-serif;
-  --font-paragraph-xs-strong-size: 12px;
-  --font-paragraph-xs-strong-line-height: 16px;
-
-  --font-paragraph-xxs-strong: 'Fotext-Bold', sans-serif;
-  --font-paragraph-xxs-strong-size: 10px;
-  --font-paragraph-xxs-strong-line-height: 12px;
-
-    /*--Button--*/
-  --font-button-lg: 'Fotext', sans-serif;
-  --font-button-lg-size: 18px;
-  --font-button-lg-line-height: 20px;
-
-    /*--Link--*/
-  --font-link-lg-strong: 'Fotext', sans-serif;
-  --font-link-lg-strong-size: 18px;
-  --font-link-lg-strong-line-height: auto;
-  --font-link-lg-underline: underline;
-
-  --font-link-base: 'Fotext', sans-serif;
-  --font-link-base-size: 16px;
-  --font-link-base-line-height: 20px;
-  --font-link-base-underline: underline;
-
-      /*--Price--*/
-  --font-price-lg: 'Fotext', sans-serif;
-  --font-price-lg-size: 32px;
-  --font-price-lg-line-height: 32px;
-
-  --font-price-md: 'Fotext', sans-serif;
-  --font-price-md-size: 22px;
-  --font-price-md-line-height: 24px;
+/*--Typography Styles--*/
+.lg-regular {
+  font-family: 'Fotext-Regular';
+  font-size: var(--size-lg);
+  line-height: var(--size-2xl);
 }
+.lg-strong {
+  font-family: 'Fotext-Bold';
+  font-size: var(--size-lg);
+  line-height: var(--size-2xl);
+}
+p {
+  font-family: 'Fotext-Regular';
+  font-size: var(--size-md);
+  line-height: var(--size-xl);
+}
+.lg-regular {
+  font-family: 'Fotext-Regular';
+  font-size: var(--size-lg);
+  line-height: var(--size-2xl);
+}
+.lg-regular {
+  font-family: 'Fotext-Regular';
+  font-size: var(--size-lg);
+  line-height: var(--size-2xl);
+}
+.lg-regular {
+  font-family: 'Fotext-Regular';
+  font-size: var(--size-lg);
+  line-height: var(--size-2xl);
+}
+
+

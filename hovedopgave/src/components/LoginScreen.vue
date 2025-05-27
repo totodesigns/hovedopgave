@@ -1,65 +1,63 @@
 <template>
-  <ion-page>
-    <ion-content :fullscreen="true">
-      <div class="login-wrapper">
-        <div class="logo-section">
-          <img src="../assets/images/logo_foetexplus.png" alt="føtex plus logo" class="login-logo" />
-        </div>
-
-        <div class="form-section">
-          <h1>Log ind eller tilmeld dig gratis</h1>
-          <p class="subtext">
-            Du får føtex Plus priser, personlige kuponer og mange andre fordele
-          </p>
-
-          <label class="email-label">E-mail</label>
-          <ion-input
-            placeholder="Indtast e-mail adresse"
-            type="email"
-            class="email-input"
-          ></ion-input>
-
-          <p class="info-text">
-            Husk at bruge den e-mail du har oprettet din
-            <a href="#">Salling Group profil</a> med.
-          </p>
-
-          <div class="brands">
-            <img src="../assets/images/logo-salling.png" alt="Salling" />
-            <img src="../assets/images/logo-br.png" alt="BR" />
-            <img src="../assets/images/logo-netto.png" alt="Netto" />
-            <img src="../assets/images/logo-fotex.png" alt="Føtex" />
-            <img src="../assets/images/logo-bilka.png" alt="Bilka" />
-          </div>
-
-          <ion-button expand="block" color="primary">Log ind</ion-button>
-          <ion-button expand="block" fill="outline" color="primary">
-            Opret en gratis profil
-          </ion-button>
-
-          <p class="guest-login">
-            <a href="#">Fortsæt som gæstebruger uden fordele</a>
-          </p>
-        </div>
+  <header :fullscreen="true">
+    <div class="login-wrapper">
+      <div class="logo-section">
+        <img src="../assets/images/logo_foetexplus.png" alt="føtex plus logo" class="login-logo" />
       </div>
-    </ion-content>
-  </ion-page>
+
+      <div class="form-section">
+        <h1>Log ind eller tilmeld dig gratis</h1>
+        <p class="subtext">
+          Du får føtex Plus priser, personlige kuponer og mange andre fordele
+        </p>
+
+        <label class="email-label">E-mail</label>
+        <input
+          placeholder="Indtast e-mail adresse"
+          type="email"
+          class="email-input"
+        ></input>
+
+        <p class="info-text">
+          Husk at bruge den e-mail du har oprettet din
+          <a href="#">Salling Group profil</a> med.
+        </p>
+
+        <div class="brands">
+          <img src="../assets/images/logo-salling.png" alt="Salling" />
+          <img src="../assets/images/logo-br.png" alt="BR" />
+          <img src="../assets/images/logo-netto.png" alt="Netto" />
+          <img src="../assets/images/logo-føtex.png" alt="Føtex" />
+          <img src="../assets/images/logo-bilka.png" alt="Bilka" />
+        </div>
+
+        <button expand="block" color="primary">Log ind</button>
+        <button expand="block" fill="outline" color="primary">
+          Opret en gratis profil
+        </button>
+
+        <p class="guest-login">
+          <a href="#">Fortsæt som gæstebruger uden fordele</a>
+        </p>
+      </div>
+    </div>
+  </header>
 </template>
 
 <script setup>
-import { IonPage, IonContent } from '@ionic/vue'
+
 </script>
 
 <style>
-ion-content {
-  background-color: var(--ion-color-surface-white);
+header {
+  background-color: var(--color-surface-white);
 }
 
 .login-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  background-color: var(--ion-color-surface-white);
+  background-color: var(--color-surface-white);
 }
 
 .logo-section {
@@ -131,7 +129,7 @@ h1 {
   object-fit: contain;
 }
 
-ion-button {
+button {
   margin-top: 12px;
   border-radius: 8px;
   font-weight: bold;

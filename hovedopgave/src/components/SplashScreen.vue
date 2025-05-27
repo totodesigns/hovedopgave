@@ -1,17 +1,17 @@
-<template>
-  <ion-page class="splash-screen">
-    <ion-content :fullscreen="true">
-      <div class="splash-container">
-        <img src="../assets/images/logo_foetexplus.png" alt="Splash Logo" class="splash-logo" />
-        <p class="splash-text">Inspiration til dig</p>
-      </div>
-    </ion-content>
-  </ion-page>
-</template>
-
 <script setup>
-import { IonPage, IonContent } from '@ionic/vue'
+
 </script>
+
+<template>
+  <header>
+    <div class="splash-screen">
+        <div class="splash-container">
+          <img alt="Vue logo" class="splash-logo" src="../assets/images/logo_foetexplus.png" width="125" height="125" />
+          <p class="splash-text">Inspiration til dig</p>
+        </div>
+    </div>
+  </header>
+</template>
 
 <style scoped>
 .splash-screen {
@@ -36,7 +36,7 @@ import { IonPage, IonContent } from '@ionic/vue'
 }
 
 .splash-text {
-  color: var(--ion-color-text-default);
+  color: var(--color-text-default);
   font-family: var(--font-heading-3xl);
   font-size: var(--font-heading-3xl-size);
   font-weight: var(--font-heading-3xl-weight);

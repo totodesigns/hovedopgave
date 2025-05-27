@@ -3,20 +3,7 @@
 </script>
 
 <template>
-  <div class="page">
-    <header class="header">
-      <h1 class="title">Blank</h1>
-    </header>
 
-    <main class="content">
-      <div id="container">
-        <strong>Ready to create an app?</strong>
-        <p>
-          Start with Vue <a target="_blank" rel="noopener noreferrer" href="https://vuejs.org/">UI Components</a>
-        </p>
-      </div>
-    </main>
-  </div>
 </template>
 
 <style scoped>
