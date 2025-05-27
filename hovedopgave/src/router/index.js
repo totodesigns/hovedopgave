@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import Guide from '../views/Guide.vue'
 import LoginScreen from '../views/LoginScreen.vue'
 
 const router = createRouter({
@@ -9,6 +10,11 @@ const router = createRouter({
       name: 'home',
       component: LoginScreen
     },
+    {
+      path: '/guide',
+      name: 'guide',
+      component: Guide
+    }
   ]
 })
 
