@@ -15,7 +15,7 @@ onMounted(() => {
 <template>
   <div>
     <SplashScreen v-if="showSplash" />
-    <LoginScreen v-else />
+    <router-view v-else />
   </div>
 </template>
 

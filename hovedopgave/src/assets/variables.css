@@ -1,7 +1,7 @@
 
 /*---colors---*/
 :root {
-	--color-surface-default: #3264FF;
+	  --color-surface-default: #3264FF;
     --color-surface-white: #FFFFFF;
     --color-surface-black: #1E1E23;
     --color-surface-background: #000037;
@@ -220,5 +220,3 @@
       font-size: var(--size-2xs);
       line-height: var(--size-xs);
     }
-
-

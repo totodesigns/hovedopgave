@@ -1,0 +1,113 @@
+
+.btn-wrapper {
+    margin: 0px 8px;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    width: 100%;
+    overflow: visible;
+    background: transparent;
+
+    /* inherit font & color from ancestor */
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+}
+
+.primary {
+    font-family: 'Fotext-Bold';
+    font-size: var(--size-lg);
+    line-height: var(--size-xl);
+    height: 48px;
+    min-width: 48px;
+    background-color: var(--color-surface-primary);
+    color: var(--color-text-default);
+    padding: 0px 12px;
+}
+
+.secondary {
+    font-family: 'Fotext-Bold';
+    font-size: var(--size-lg);
+    line-height: var(--size-xl);
+    height: 48px;
+    min-width: 48px;
+    background-color: var(--color-surface-white);
+    color: var(--color-text-primary);
+    padding: 0px 12px;
+
+    border: 1px solid var(--color-border-primary);
+}
+
+.tertiary {
+    font-family: 'Fotext-Bold';
+    font-size: var(--size-lg);
+    line-height: var(--size-xl);
+    height: 48px;
+    min-width: 48px;
+    color: var(--color-text-black);
+    padding: 0px 12px;
+}
+
+a {
+    font-family: 'Fotext-Regular';
+    font-size: var(--size-md);
+    line-height: var(--size-lg);
+    color: var(--color-text-default);
+    text-decoration: underline;
+}
+
+.btn-wrapper > p {
+    margin-top: 2px;
+    line-height: var(--size-md);
+}
+
+.icon-btn {
+    height: 24px;
+    width: 24px;
+    border: 1px solid var(--color-border-grey-light);
+    background-color: var(--color-surface-white);
+    border-radius: 100%;
+}
+
+.icon-wrapper {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.i-str-white {
+    stroke: var(--color-icon-white);
+    fill: none;
+}
+
+.i-fill-white {
+    fill: var(--color-icon-white);
+    stroke: none;
+}
+
+.i-str-blue {
+    stroke: var(--color-icon-primary);
+    fill: none;
+}
+
+.i-fill-blue {
+    fill: var(--color-icon-primary);
+    stroke: none;
+}
+
+.i-str-black {
+    stroke: var(--color-icon-black);
+    fill: none;
+}
+
+.i-fill-black {
+    fill: var(--color-icon-black);
+    stroke: none;
+}

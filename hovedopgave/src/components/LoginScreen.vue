@@ -129,13 +129,6 @@ h1 {
   object-fit: contain;
 }
 
-button {
-  margin-top: 12px;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
 .guest-login {
   margin-top: 24px;
   font-size: 0.9rem;
