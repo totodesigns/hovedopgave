@@ -3,43 +3,26 @@
 </script>
 
 <template>
-  <header>
-    <div class="splash-screen">
-        <div class="splash-container">
-          <img alt="Vue logo" class="splash-logo" src="../assets/images/logo_foetexplus.png" width="125" height="125" />
-          <p class="splash-text">Inspiration til dig</p>
-        </div>
-    </div>
-  </header>
+  <div class="splash-screen">
+    <img alt="Vue logo" class="splash-logo" src="../assets/images/logo_foetexplus.png" width="125" height="125" />
+    <p class="heading-3xl">Inspiration til dig</p>
+  </div>
 </template>
 
 <style scoped>
 .splash-screen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.splash-container {
   background-color: var(--color-surface-background);
   display: flex;
+  height: 100vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
   text-align: center;
 }
 
 .splash-logo {
   width: 210px;
   height: auto;
-}
-
-.splash-text {
-  color: var(--color-text-default);
-  font-family: var(--font-heading-3xl);
-  font-size: var(--font-heading-3xl-size);
-  font-weight: var(--font-heading-3xl-weight);
-  line-height: var(--font-heading-3xl-line-height);
+  margin-bottom: 24px;
 }
 </style>

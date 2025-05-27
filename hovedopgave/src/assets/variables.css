@@ -152,18 +152,21 @@
       font-family: 'Fotext-Bold';
       font-size: var(--size-3xl);
       line-height: var(--size-3xl);
+      color: var(--color-text-default)
     }
 
     .heading-2xl {
       font-family: 'Fotext-Bold';
       font-size: var(--size-2xl);
       line-height: var(--size-2xl);
+      color: var(--color-text-default)
     }
 
     .heading-xl {
       font-family: 'Fotext-Bold';
       font-size: var(--size-xl);
       line-height: var(--size-2xl);
+      color: var(--color-text-default)
     }
 
   /*--Paragraphs--*/
@@ -171,54 +174,63 @@
       font-family: 'Fotext-Regular';
       font-size: var(--size-lg);
       line-height: var(--size-2xl);
+      color: var(--color-text-default)
     }
 
     .lg-strong {
       font-family: 'Fotext-Bold';
       font-size: var(--size-lg);
       line-height: var(--size-2xl);
+      color: var(--color-text-default)
     }
 
     p {
       font-family: 'Fotext-Regular';
       font-size: var(--size-md);
       line-height: var(--size-xl);
+      color: var(--color-text-default)
     }
 
     .base-strong {
       font-family: 'Fotext-Bold';
       font-size: var(--size-md);
       line-height: var(--size-xl);
+      color: var(--color-text-default)
     }
 
     .sm-regular {
       font-family: 'Fotext-Regular';
       font-size: var(--size-sm);
       line-height: var(--size-md);
+      color: var(--color-text-default)
     }
 
     .sm-strong {
       font-family: 'Fotext-Bold';
       font-size: var(--size-sm);
       line-height: var(--size-md);
+      color: var(--color-text-default)
     }
 
     .xs-regular {
       font-family: 'Fotext-Regular';
       font-size: var(--size-xs);
       line-height: var(--size-md);
+      color: var(--color-text-default)
     }
 
     .xs-strong {
       font-family: 'Fotext-Bold';
       font-size: var(--size-xs);
       line-height: var(--size-md);
+      color: var(--color-text-default)
     }
 
     .xxs-strong {
       font-family: 'Fotext-Bold';
       font-size: var(--size-2xs);
       line-height: var(--size-xs);
+      color: var(--color-text-default)
     }
 
 
