@@ -4,6 +4,7 @@
 
 <template>
 <p>test321</p>
+<p>test123</p>
 </template>
 
 <style scoped>
