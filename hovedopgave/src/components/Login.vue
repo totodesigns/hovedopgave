@@ -7,11 +7,15 @@ const goToGuide = () => {
   router.push('/guide');
 }
 
+const goToPLP = () => {
+  router.push('/plp');
+}
+
 </script>
 
 <template>
-  <header>
-    <div class="login-wrapper">
+  <div class="page-wrapper">
+    <header>
       <section class="logo-section">
         <img
           src="../assets/images/logo_foetexplus.png"
@@ -19,62 +23,54 @@ const goToGuide = () => {
           class="login-logo"
         />
       </section>
+    </header>
+    <main class="form-section">
+      <h3 class="heading-xl">Log ind eller tilmeld dig gratis</h3>
+      <p class="subtext">
+        Du får føtex Plus priser, personlige kuponer og mange andre fordele
+      </p>
 
-      <main class="form-section">
-        <h3 class="heading-xl">Log ind eller tilmeld dig gratis</h3>
-        <p class="subtext">
-          Du får føtex Plus priser, personlige kuponer og mange andre fordele
+      <form>
+        <label for="email" class="email-label base-strong">E-mail</label>
+        <input
+          id="email"
+          name="email"
+          placeholder="Indtast e-mail adresse"
+          type="email"
+          class="email-input"
+        />
+
+        <p class="info-text sm-regular">
+          Husk at bruge den e-mail du har oprettet din <u>Salling Group profil</u> med.
         </p>
 
-        <form>
-          <label for="email" class="email-label base-strong">E-mail</label>
-          <input
-            id="email"
-            name="email"
-            placeholder="Indtast e-mail adresse"
-            type="email"
-            class="email-input"
-          />
+        <section class="brands" aria-label="Brandlogoer">
+          <img src="../assets/images/logo-salling.png" alt="Salling" class="salling"/>
+          <img src="../assets/images/logo-br.png" alt="BR" class="br"/>
+          <img src="../assets/images/logo-netto.png" alt="Netto" class="netto"/>
+          <img src="../assets/images/logo-føtex.png" alt="Føtex" class="fotex"/>
+          <img src="../assets/images/logo-bilka.png" alt="Bilka" class="bilka"/>
+        </section>
 
-          <p class="info-text sm-regular">
-            Husk at bruge den e-mail du har oprettet din
-            <a href="#">Salling Group profil</a> med.
-          </p>
+        <button class="primary" @click="goToGuide">
+          <div class="btn-wrapper">
+            <p>Log ind</p>
+          </div>
+        </button>
 
-          <section class="brands" aria-label="Brandlogoer">
-            <img src="../assets/images/logo-salling.png" alt="Salling" class="salling"/>
-            <img src="../assets/images/logo-br.png" alt="BR" class="br"/>
-            <img src="../assets/images/logo-netto.png" alt="Netto" class="netto"/>
-            <img src="../assets/images/logo-føtex.png" alt="Føtex" class="fotex"/>
-            <img src="../assets/images/logo-bilka.png" alt="Bilka" class="bilka"/>
-          </section>
-
-          <button @click="goToGuide" type="button" class="btn-primary">
-            Log ind
-          </button>
-
-          <button type="button" class="btn-outline">
-            Opret en gratis profil
-          </button>
-        </form>
-
-        <p class="guest-login sm-regular">
-          <a href="#">Fortsæt som gæstebruger uden fordele</a>
-        </p>
-      </main>
-    </div>
-  </header>
+        <button class="secondary" @click="goToGuide">
+          <div class="btn-wrapper">
+            <p>Opret gratis profil</p>
+          </div>
+        </button>
+      </form>
+      <a href="#" class="guest-login" @click="goToPLP">Fortsæt som gæstebruger uden fordele</a>
+    </main>
+  </div>
 </template>
 
 <style>
 header {
-  background-color: var(--color-surface-white);
-}
-
-.login-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
   background-color: var(--color-surface-white);
 }
 
@@ -96,7 +92,10 @@ header {
 .form-section {
   padding: 24px 16px 48px 16px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
   flex: 1;
+  height: 70vh;
 }
 
 h3.heading-xl {
@@ -183,9 +182,7 @@ button {
 
 .guest-login {
   margin-top: 24px;
-}
-
-.guest-login a {
   color: var(--color-text-black);
 }
+
 </style>
