@@ -1,0 +1,215 @@
+/* For information on how to create your own theme, please see:
+http://ionicframework.com/docs/theming/ */
+
+/*---colors---*/
+:root {
+	--color-surface-default: #3264FF;
+    --color-surface-white: #FFFFFF;
+    --color-surface-black: #1E1E23;
+    --color-surface-background: #000037;
+    --color-surface-primary: #3264FF;
+    --color-surface-primary-hover: #001E7A;
+    --color-surface-primary-pressed: #0037E0;
+    --color-surface-primary-disabled: #C8D7FF;
+    --color-surface-secondary: #FFEB41;
+    --color-surface-secondary-hover: #FFDC28;
+    --color-surface-secondary-pressed: #FFF096;
+    --color-surface-secondary-disabled: #FFF096;
+    --color-surface-disabled: #B5B5BF;
+    --color-surface-disabled-light: #DEDEE3;
+
+    --color-surface-info-default: #C8D7FF;
+    --color-surface-info-hover: #7A9BFF;
+
+    --color-surface-success-default: #23994F;
+    --color-surface-success-hover: #386249;
+
+    --color-surface-danger-default: #EA4144;
+    --color-surface-danger-default-hover: #8F2E30;
+    --color-surface-danger-light: #FCE3E4;
+    --color-surface-danger-light-hover: #F7B6B7;
+    --color-surface-danger-disabled: #F1F1F3;
+
+    --color-surface-awareness-default: #FFDC28;
+    --color-surface-awareness-hover: #FFEB41;
+
+    --color-surface-grey-light: #DEDEE3;
+    --color-surface-grey-light-hover: #B5B5BF;
+    --color-surface-grey-dark: #9999A8;
+    --color-surface-grey-dark-hover: #4E4E5B;
+
+    --color-text-default: #FFFFFF;
+    --color-text-white: #FFFFFF;
+    --color-text-black: #1E1E23;
+    --color-text-primary: #3264FF;
+    --color-text-primary-hover: #001E7A;
+    --color-text-primary-pressed: #0037E0;
+    --color-text-primary-disabled: #9999A8;
+    --color-text-disabled: #B5B5BF;
+
+    --color-text-info-default: #3264FF;
+
+    --color-text-success-default: #23994F;
+
+    --color-text-danger-default: #EA4144;
+
+    --color-text-awareness-default: #FFDC28;
+
+    --color-text-grey-light: #9999A8;
+    --color-text-grey-default: #656576;
+    --color-text-grey-placeholder: #7E7E90;
+
+    --color-border-default: #7E7E90;
+    --color-border-white: #FFFFFF;
+    --color-border-black: #1E1E23;
+    --color-border-primary: #3264FF;
+    --color-border-primary-hover: #001E7A;
+    --color-border-primary-pressed: #0037E0;
+    --color-border-primary-disabled: #DEDEE3;
+    --color-border-disabled: #B5B5BF;
+
+    --color-border-info-default: #3264FF;
+
+    --color-border-success-default: #386249;
+
+    --color-border-danger-default: #EA4144;
+    --color-border-danger-hover: #8F2E30;
+
+    --color-border-awareness-default: #FFDC28;
+
+    --color-border-grey-light: #DEDEE3;
+    --color-border-grey-default: #7E7E90;
+    
+    --color-icon-default: #1E1E23;
+    --color-icon-white: #FFFFFF;
+    --color-icon-black: #1E1E23;
+    --color-icon-primary: #3264FF;
+    --color-icon-primary-hover: #001E7A;
+    --color-icon-primary-pressed: #0037E0;
+    --color-icon-primary-disabled: #DEDEE3;
+    --color-icon-secondary: #FFEB41;
+    --color-icon-secondary-hover: #FFDC28;
+    --color-icon-secondary-disabled: #FFF096;
+    --color-icon-disabled: #B5B5BF;
+
+    --color-icon-info-default: #3264FF;
+    
+    --color-icon-success-default: #386249;
+
+    --color-icon-danger-default: #EA4144;
+    --color-icon-danger-hover: #8F2E30;
+    --color-icon-danger-disabled: #F7B6B7;
+    --color-icon-danger-disabled-hover: #F28889;
+
+    --color-icon-awareness-default: #FFDC28;
+
+    --color-icon-grey-light: #9999A8;
+    --color-icon-grey-default: #7E7E90;
+    --color-icon-grey-placeholder: #9999A8;
+}
+
+@font-face {
+  font-family: 'Fotext-Regular';
+  src: url('@/assets/fonts/fotext-regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Fotext-Bold';
+  src: url('@/assets/fonts/fotext-bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Fotext-Italic';
+  src: url('@/assets/fonts/fotext-italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Fotext-BoldItalic';
+  src: url('@/assets/fonts/fotext-bolditalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+/*---fonts---*/
+:root {
+    /*--Heading--*/
+  --font-heading-3xl: 'Fotext-Bold', sans-serif;
+  --font-heading-3xl-size: 32px;
+  --font-heading-3xl-line-height: 32px;
+
+  --font-heading-2xl: 'Fotext-Bold', sans-serif;
+  --font-heading-2xl-size: 24px;
+  --font-heading-2xl-line-height: 24px;
+
+  --font-heading-xl: 'Fotext-Bold', sans-serif;
+  --font-heading-xl-size: 20px;
+  --font-heading-xl-line-height: 24px;
+
+    /*--Paragraph--*/
+  --font-paragraph-lg-regular: 'Fotext-Regular', sans-serif;
+  --font-paragraph-lg-regular-size: 18px;
+  --font-paragraph-lg-regular-line-height: 24px;
+
+  --font-paragraph-lg-strong: 'Fotext-Bold', sans-serif;
+  --font-paragraph-lg-strong-size: 18px;
+  --font-paragraph-lg-strong-line-height: 24px;
+
+  --font-paragraph-base-regular: 'Fotext-Regular', sans-serif;
+  --font-paragraph-base-regular-size: 16px;
+  --font-paragraph-base-regular-line-height: 20px;
+
+  --font-paragraph-base-strong: 'Fotext-Bold', sans-serif;
+  --font-paragraph-base-strong-size: 16px;
+  --font-paragraph-base-strong-line-height: 20px;
+
+  --font-paragraph-sm-regular: 'Fotext-Regular', sans-serif;
+  --font-paragraph-sm-regular-size: 14px;
+  --font-paragraph-sm-regular-line-height: 16px;
+
+  --font-paragraph-sm-strong: 'Fotext-Bold', sans-serif;
+  --font-paragraph-sm-strong-size: 14px;
+  --font-paragraph-sm-strong-line-height: 16px;
+
+  --font-paragraph-xs-regular: 'Fotext-Regular', sans-serif;
+  --font-paragraph-xs-regular-size: 12px;
+  --font-paragraph-xs-regular-line-height: 16px;
+
+  --font-paragraph-xs-strong: 'Fotext-Bold', sans-serif;
+  --font-paragraph-xs-strong-size: 12px;
+  --font-paragraph-xs-strong-line-height: 16px;
+
+  --font-paragraph-xxs-strong: 'Fotext-Bold', sans-serif;
+  --font-paragraph-xxs-strong-size: 10px;
+  --font-paragraph-xxs-strong-line-height: 12px;
+
+    /*--Button--*/
+  --font-button-lg: 'Fotext', sans-serif;
+  --font-button-lg-size: 18px;
+  --font-button-lg-line-height: 20px;
+
+    /*--Link--*/
+  --font-link-lg-strong: 'Fotext', sans-serif;
+  --font-link-lg-strong-size: 18px;
+  --font-link-lg-strong-line-height: auto;
+  --font-link-lg-underline: underline;
+
+  --font-link-base: 'Fotext', sans-serif;
+  --font-link-base-size: 16px;
+  --font-link-base-line-height: 20px;
+  --font-link-base-underline: underline;
+
+      /*--Price--*/
+  --font-price-lg: 'Fotext', sans-serif;
+  --font-price-lg-size: 32px;
+  --font-price-lg-line-height: 32px;
+
+  --font-price-md: 'Fotext', sans-serif;
+  --font-price-md-size: 22px;
+  --font-price-md-line-height: 24px;
+}
