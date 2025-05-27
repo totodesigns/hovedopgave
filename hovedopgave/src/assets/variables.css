@@ -106,7 +106,7 @@
     --color-icon-grey-placeholder: #9999A8;
 
     /*--Sizes--*/
-    --size-xxs: 10px;
+    --size-2xs: 10px;
     --size-xs: 12px;
     --size-sm: 14px;
     --size-md: 16px;
@@ -146,35 +146,79 @@
 }
 
 /*--Typography Styles--*/
-.lg-regular {
-  font-family: 'Fotext-Regular';
-  font-size: var(--size-lg);
-  line-height: var(--size-2xl);
-}
-.lg-strong {
-  font-family: 'Fotext-Bold';
-  font-size: var(--size-lg);
-  line-height: var(--size-2xl);
-}
-p {
-  font-family: 'Fotext-Regular';
-  font-size: var(--size-md);
-  line-height: var(--size-xl);
-}
-.lg-regular {
-  font-family: 'Fotext-Regular';
-  font-size: var(--size-lg);
-  line-height: var(--size-2xl);
-}
-.lg-regular {
-  font-family: 'Fotext-Regular';
-  font-size: var(--size-lg);
-  line-height: var(--size-2xl);
-}
-.lg-regular {
-  font-family: 'Fotext-Regular';
-  font-size: var(--size-lg);
-  line-height: var(--size-2xl);
-}
+
+  /*--Headings--*/
+    .heading-3xl {
+      font-family: 'Fotext-Bold';
+      font-size: var(--size-3xl);
+      line-height: var(--size-3xl);
+    }
+
+    .heading-2xl {
+      font-family: 'Fotext-Bold';
+      font-size: var(--size-2xl);
+      line-height: var(--size-2xl);
+    }
+
+    .heading-xl {
+      font-family: 'Fotext-Bold';
+      font-size: var(--size-xl);
+      line-height: var(--size-2xl);
+    }
+
+  /*--Paragraphs--*/
+    .lg-regular {
+      font-family: 'Fotext-Regular';
+      font-size: var(--size-lg);
+      line-height: var(--size-2xl);
+    }
+
+    .lg-strong {
+      font-family: 'Fotext-Bold';
+      font-size: var(--size-lg);
+      line-height: var(--size-2xl);
+    }
+
+    p {
+      font-family: 'Fotext-Regular';
+      font-size: var(--size-md);
+      line-height: var(--size-xl);
+    }
+
+    .base-strong {
+      font-family: 'Fotext-Bold';
+      font-size: var(--size-md);
+      line-height: var(--size-xl);
+    }
+
+    .sm-regular {
+      font-family: 'Fotext-Regular';
+      font-size: var(--size-sm);
+      line-height: var(--size-md);
+    }
+
+    .sm-strong {
+      font-family: 'Fotext-Bold';
+      font-size: var(--size-sm);
+      line-height: var(--size-md);
+    }
+
+    .xs-regular {
+      font-family: 'Fotext-Regular';
+      font-size: var(--size-xs);
+      line-height: var(--size-md);
+    }
+
+    .xs-strong {
+      font-family: 'Fotext-Bold';
+      font-size: var(--size-xs);
+      line-height: var(--size-md);
+    }
+
+    .xxs-strong {
+      font-family: 'Fotext-Bold';
+      font-size: var(--size-2xs);
+      line-height: var(--size-xs);
+    }
 
 
