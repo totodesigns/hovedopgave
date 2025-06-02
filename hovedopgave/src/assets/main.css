@@ -15,6 +15,10 @@ body, #app, .page-wrapper {
     padding: 44px 16px 92px 16px;
 }
 
+.page-wrapper {
+    padding: 44px 16px 92px 16px;
+}
+
 input {
     border: none;
 }
