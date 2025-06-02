@@ -10,7 +10,6 @@ const goToGuide = () => {
 const goToPLP = () => {
   router.push('/plp');
 }
-
 </script>
 
 <template>
@@ -25,7 +24,7 @@ const goToPLP = () => {
       </section>
     </header>
     <main class="form-section">
-      <h3 class="heading-xl">Log ind eller tilmeld dig gratis</h3>
+      <h3>Log ind eller tilmeld dig gratis</h3>
       <p class="subtext">
         Du får føtex Plus priser, personlige kuponer og mange andre fordele
       </p>
@@ -70,6 +69,7 @@ const goToPLP = () => {
 </template>
 
 <style>
+
 header {
   background-color: var(--color-surface-white);
 }
@@ -90,6 +90,7 @@ header {
 }
 
 .form-section {
+  background-color: var(--color-surface-white);
   padding: 24px 16px 48px 16px;
   text-align: center;
   display: flex;
