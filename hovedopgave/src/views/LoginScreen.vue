@@ -8,3 +8,11 @@ import Login from '../components/Login.vue'
     <Login />
   </div>
 </template>
+
+<style scoped>
+
+.page-wrapper {
+  padding: 0;
+}
+
+</style>

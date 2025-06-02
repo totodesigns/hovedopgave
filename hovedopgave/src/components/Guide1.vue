@@ -57,7 +57,7 @@ const continueFlow = () => {
     </nav>
 
     <footer>
-      <button class="primary" @click="continueFlow">
+      <button class="primary" @click="$emit('next')">
         <div class="btn-wrapper">
           <p>Fortsæt</p>
         </div>

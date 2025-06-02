@@ -68,8 +68,7 @@ const goToPLP = () => {
   </div>
 </template>
 
-<style>
-
+<style scoped>
 header {
   background-color: var(--color-surface-white);
 }

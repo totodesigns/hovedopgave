@@ -58,12 +58,12 @@ const continueFlow = () => {
 
     <footer>
       <div class="footer-btn-container">
-        <button class="secondary" @click="continueFlow">
+        <button class="secondary" @click="$emit('prev')">
           <div class="btn-wrapper">
             <p>Tilbage</p>
           </div>
         </button>
-        <button class="primary" @click="continueFlow">
+        <button class="primary" @click="$emit('next')">
           <div class="btn-wrapper">
             <p>Fortsæt</p>
           </div>
