@@ -152,7 +152,8 @@
       font-family: 'Fotext-Bold';
       font-size: var(--size-3xl);
       line-height: var(--size-3xl);
-      color: var(--color-text-default)
+      color: var(--color-text-default);
+      margin-top: 3px;
     }
 
     h2 {
