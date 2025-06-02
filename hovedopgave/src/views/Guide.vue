@@ -28,32 +28,8 @@ const slides = [Guide1, Guide2, Guide3]
         <component :is="Component" />
       </swiper-slide>
     </swiper>
-
-    <div class="skip">
-      <p @click="skip">Spring over</p>
-    </div>
   </div>
 </template>
 
 <style scoped>
-.guide-container {
-  height: 100vh;
-  background-color: #0b0c42;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.mySwiper {
-  flex: 1;
-}
-
-.skip {
-  text-align: center;
-  margin-bottom: 16px;
-  font-weight: bold;
-  text-decoration: underline;
-  cursor: pointer;
-}
 </style>

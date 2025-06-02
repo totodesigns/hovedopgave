@@ -1,43 +1,168 @@
+<script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const goBack = () => {
+  // Gå tilbage
+  console.log("Tilbage");
+};
+
+const skip = () => {
+  // Gå til slutningen eller næste side
+  console.log("Spring over");
+};
+
+const continueFlow = () => {
+  // Næste side
+  console.log("Fortsæt");
+};
+</script>
+
 <template>
-  <div class="step">
-    <img src="../assets/red-maden.png" alt="Red maden" />
-    <h2>Red maden</h2>
-    <p>
-      Smid ikke maden ud! Selv maden bagerst i køleskabet kan bruges til en
-      spændende aftensmad.
-    </p>
-    <button class="next-btn">Fortsæt</button>
-  </div>
+  <main class="page-wrapper">
+    <header class="top-bar">
+      <button @click="goBack" class="icon-btn" aria-label="Tilbage">
+        <div class="icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <path class="i-str-black" d="M15 19L8 12L15 5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+      </button>
+
+      <div class="logo-container">
+        <img src="../assets/images/logo_foetexplus.png" alt="føtex plus logo" class="top-barlogo" />
+        <p class="logo-text sm-strong">Opskrifter</p>
+      </div>
+
+      <a class="skip">Skip</a>
+    </header>
+
+    <figure>
+      <img src="../assets/images/illustration-spar-penge.png" alt="Illustration af mad i skraldespand" class="illustration" />
+    </figure>
+
+    <section class="text-content">
+        <h1 class="title">Spar penge</h1>
+
+        <p class="description">
+          Vores opskrifter er direkte bundet til vores aktuelle tilbudsavis, så du sparer på både pengene og tiden!
+        </p>
+    </section>
+
+    <nav class="pagination" aria-label="Pagination indikator">
+      <span class="dot active" aria-current="step"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </nav>
+
+    <footer>
+      <div class="footer-btn-container">
+        <button class="secondary" @click="continueFlow">
+          <div class="btn-wrapper">
+            <p>Tilbage</p>
+          </div>
+        </button>
+        <button class="primary" @click="continueFlow">
+          <div class="btn-wrapper">
+            <p>Kom i gang</p>
+          </div>
+        </button>
+      </div>
+
+      <button class="tertiary" @click="skip">
+        <div class="btn-wrapper">
+          <p>Spring over</p>
+        </div>
+      </button>
+    </footer>
+  </main>
 </template>
 
+
 <style scoped>
-.step {
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 24px;
+}
+
+.top-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: none;
+}
+
+.logo-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 24px;
+  justify-content: center;
+}
+
+.top-barlogo {
+  width: 76px;
+  height: auto;
+}
+
+.logo-text {
+  margin-top: 6px;
+}
+
+.skip {
+  opacity: 0;
+}
+
+.icon-btn {
+  margin: 0;
+  padding: 0;
+}
+
+.illustration {
+  width: 100%;
+  height: auto;
+}
+
+.text-content {
+  height: 100%;
   text-align: center;
 }
-img {
-  width: 80%;
-  max-width: 300px;
-  margin-bottom: 24px;
+
+.title {
+  margin-bottom: 6px;
 }
-h2 {
-  font-size: 24px;
-  margin-bottom: 12px;
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
 }
-p {
-  font-size: 16px;
-  margin-bottom: 24px;
+
+.footer-btn-container {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
 }
-.next-btn {
-  background-color: #2a6aff;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 16px;
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-surface-grey-dark);
+  border-radius: 50px;
+}
+
+.dot.active {
+  width: 16px;
+  background: white;
+}
+
+.skip-bottom {
+  background: none;
   border: none;
+  color: #ffffffa0;
+  font-size: 14px;
 }
 </style>

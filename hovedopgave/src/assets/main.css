@@ -11,6 +11,10 @@ body, #app, .page-wrapper {
     background-image: url("images/Background.png");
 }
 
+.page-wrapper {
+    padding: 44px 16px 92px 16px;
+}
+
 
 /*--Buttons--*/
 

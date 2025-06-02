@@ -5,7 +5,7 @@
 <template>
   <div class="splash-screen">
     <img alt="Vue logo" class="splash-logo" src="../assets/images/logo_foetexplus.png" width="125" height="125" />
-    <p class="heading-3xl">Inspiration til dig</p>
+    <h1>Inspiration til dig</h1>
   </div>
 </template>
 

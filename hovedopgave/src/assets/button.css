@@ -66,7 +66,9 @@ a {
 
 .btn-wrapper > p {
     margin-top: 2px;
+    font-size: 18px;
     line-height: var(--size-md);
+    font-family: 'Fotext-Bold';
 }
 
 .icon-btn {
