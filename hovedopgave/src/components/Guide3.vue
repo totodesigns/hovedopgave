@@ -3,20 +3,10 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-const goBack = () => {
-  // Gå tilbage
-  console.log("Tilbage");
-};
-
-const skip = () => {
-  // Gå til slutningen eller næste side
-  console.log("Spring over");
-};
-
-const continueFlow = () => {
-  // Næste side
-  console.log("Fortsæt");
-};
+//const finishGuide() {
+ // router.push('/') // push to a new router!!!!! this is missing
+//  console.log('mangler router path')
+//}
 </script>
 
 <template>
@@ -58,12 +48,12 @@ const continueFlow = () => {
 
     <footer>
       <div class="footer-btn-container">
-        <button class="secondary" @click="continueFlow">
+        <button class="secondary" @click="$emit('prev')">
           <div class="btn-wrapper">
             <p>Tilbage</p>
           </div>
         </button>
-        <button class="primary" @click="continueFlow">
+        <button class="primary" @click="finishGuide">
           <div class="btn-wrapper">
             <p>Kom i gang</p>
           </div>
