@@ -148,21 +148,22 @@
 /*--Typography Styles--*/
 
   /*--Headings--*/
-    .heading-3xl {
+    h1 {
       font-family: 'Fotext-Bold';
       font-size: var(--size-3xl);
       line-height: var(--size-3xl);
-      color: var(--color-text-default)
+      color: var(--color-text-default);
+      margin-top: 3px;
     }
 
-    .heading-2xl {
+    h2 {
       font-family: 'Fotext-Bold';
       font-size: var(--size-2xl);
       line-height: var(--size-2xl);
       color: var(--color-text-default)
     }
 
-    .heading-xl {
+    h3 {
       font-family: 'Fotext-Bold';
       font-size: var(--size-xl);
       line-height: var(--size-2xl);
