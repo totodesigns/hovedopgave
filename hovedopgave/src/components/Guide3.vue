@@ -3,31 +3,13 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-//const finishGuide() {
- // router.push('/') // push to a new router!!!!! this is missing
-//  console.log('mangler router path')
-//}
+const finishGuide = () => {
+  router.push('/onboarding');
+}
 </script>
 
 <template>
   <main class="page-wrapper">
-    <header class="top-bar">
-      <button @click="goBack" class="icon-btn" aria-label="Tilbage">
-        <div class="icon-wrapper">
-            <svg width="24" height="24" viewBox="0 0 24 24">
-              <path class="i-str-black" d="M15 19L8 12L15 5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </div>
-      </button>
-
-      <div class="logo-container">
-        <img src="../assets/images/logo_foetexplus.png" alt="føtex plus logo" class="top-barlogo" />
-        <p class="logo-text sm-strong">Opskrifter</p>
-      </div>
-
-      <a class="skip">Skip</a>
-    </header>
-
     <figure>
       <img src="../assets/images/illustration-spar-penge.png" alt="Illustration af mad i skraldespand" class="illustration" />
     </figure>
@@ -41,9 +23,9 @@ const router = useRouter()
     </section>
 
     <nav class="pagination" aria-label="Pagination indikator">
+      <span class="dot"></span>
+      <span class="dot"></span>
       <span class="dot active" aria-current="step"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
     </nav>
 
     <footer>
@@ -71,44 +53,16 @@ const router = useRouter()
 
 
 <style scoped>
+.page-wrapper {
+  padding: 0;
+  background: none;
+}
+
 main {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   gap: 24px;
-}
-
-.top-bar {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  background: none;
-}
-
-.logo-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.top-barlogo {
-  width: 76px;
-  height: auto;
-}
-
-.logo-text {
-  margin-top: 6px;
-}
-
-.skip {
-  opacity: 0;
-}
-
-.icon-btn {
-  margin: 0;
-  padding: 0;
 }
 
 .illustration {
@@ -117,7 +71,7 @@ main {
 }
 
 .text-content {
-  height: 100%;
+  height: 125px;
   text-align: center;
 }
 
@@ -142,6 +96,7 @@ main {
   height: 8px;
   background: var(--color-surface-grey-dark);
   border-radius: 50px;
+  transition: all 0.3s ease;
 }
 
 .dot.active {
