@@ -8,7 +8,10 @@
     
     const emit = defineEmits(['update:modelValue'])
 
-    const isSelected = computed(() => props.modelValue.includes(props.value))
+    const isSelected = computed(() => {
+      return Array.isArray(props.modelValue) && props.modelValue.includes(props.value)
+    })
+
 
     const toggle = () => {
       const updated = isSelected.value
@@ -22,11 +25,12 @@
 <template>
   <div
     class="chip"
-    :class="{ active: isSelected }"
+    :class="{ active: isSelected.valueOf() }"
     @click="toggle"
   >
     <slot />
   </div>
+
 </template>
 
 <style scoped>
