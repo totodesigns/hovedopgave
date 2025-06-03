@@ -14,8 +14,6 @@ onMounted(async () => {
   const snapshot = await get(dbRef(database, '/'));
   if (snapshot.exists()) {
     recipes.value = Object.values(snapshot.val());
-  } else {
-    console.log("lol");
   }
 });
 
