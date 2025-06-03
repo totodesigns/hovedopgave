@@ -7,12 +7,22 @@ const props = defineProps({
     default: () => []
   }
 });
+
+// Her bruger vi opskrifternes index i databasen som ID.
+// Mest fleksibelt til fremtiden med 500+ potentielle opskrifter!
+const recipesWithId = props.recipes.map((r, index) => ({
+  id: index.toString(),
+  ...r
+}));
+
+console.log('Alle opskrifter:', props.recipes)
+
 </script>
 
 <template>
   <div v-if="recipes.length" class="slider">
     <div class="cards">
-      <RecipeCard v-for="(recipe, index) in recipes" 
+      <RecipeCard v-for="(recipe, index) in recipesWithId" 
                   :key="index" 
                   :recipe="recipe" />
     </div>

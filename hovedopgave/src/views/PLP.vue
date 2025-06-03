@@ -52,7 +52,7 @@ const isOn = ref(false)
         </div>
       </button>
     </div>
-    <div class="flex gap-2">
+    <div>
       <ToggleChip v-model="isOn">Click Me</ToggleChip>
     </div>
   </div>
