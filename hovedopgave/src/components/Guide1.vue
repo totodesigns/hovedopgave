@@ -4,8 +4,7 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 const skip = () => {
-  // Gå til slutningen eller næste side
-  console.log("Spring over");
+  router.push('/onboarding');
 };
 
 </script>

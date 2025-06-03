@@ -4,8 +4,7 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 const skip = () => {
-  // Gå til slutningen eller næste side
-  console.log("Spring over");
+  router.push('/plp');
 };
 
 </script>
@@ -62,12 +61,12 @@ main {
 }
 
 .text-content {
-  height: 125px;
-  text-align: center;
+  height: 456px;
+  text-align: left;
 }
 
 .title {
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .pagination {

@@ -6,6 +6,10 @@ const router = useRouter()
 const finishGuide = () => {
   router.push('/onboarding');
 }
+
+const skip = () => {
+  router.push('/onboarding');
+};
 </script>
 
 <template>

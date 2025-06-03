@@ -18,14 +18,14 @@ const router = createRouter({
       component: Guide
     },
     {
-      path: '/plp',
-      name: 'plp',
-      component: HomePage
-    },
-    {
       path: '/onboarding',
       name: 'onboarding',
       component: Onboarding
+    },
+    {
+      path: '/plp',
+      name: 'plp',
+      component: HomePage
     },
   ]
 })
