@@ -1,11 +1,21 @@
 <script setup>
-const props = defineProps({
-  recipe: Object
-});
+import { useRouter } from 'vue-router';
+
+const props = defineProps({ recipe: Object });
+const router = useRouter();
+
+const openPDP = () => {
+  if (props.recipe?.id) {
+    router.push({ name: 'PDP', params: { id: props.recipe.id } });
+  } else {
+    console.warn('Kan ikke åbne PDP – mangler recipe.id:', props.recipe);
+  }
+};
+
 </script>
 
 <template>
-  <div class="card">
+  <div class="card" @click="openPDP">
     <div class="card-top">
         <div class="card-image-wrapper"> 
         </div>
