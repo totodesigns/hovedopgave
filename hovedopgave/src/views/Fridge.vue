@@ -2,7 +2,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import BottomSheet from '../components/BottomSheet.vue'
 
-const showKøleskab = ref(false)
+const showFridge = ref(false)
 const showStregkode = ref(false)
 const showInfo = ref(false)
 
@@ -117,7 +117,7 @@ onUnmounted(() => {
     </BottomSheet>
 
     <!-- Køleskab -->
-    <BottomSheet :isOpen="showKøleskab" :close="() => showKøleskab = false">
+    <BottomSheet :isOpen="showFridge" :close="() => showFridge = false">
         <div class="sheet-wrapper">
             <h2>Vi fandt følgende varer:</h2>
             <div class="list-item-wrapper"></div>

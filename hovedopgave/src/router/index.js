@@ -4,7 +4,7 @@ import LoginScreen from '../views/LoginScreen.vue'
 import HomePage from '../views/PLP.vue'
 import Onboarding from '../views/Onboarding.vue'
 import PDP from '../views/PDP.vue';
-import Køleskabsfunktion from '../views/Fridge.vue';
+import Fridge from '../views/Fridge.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -36,8 +36,8 @@ const router = createRouter({
     },
     {
       path: '/scanner',
-      name: 'Køleskabsfunktion',
-      component: Køleskabsfunktion
+      name: 'Fridge',
+      component: Fridge
     },
       
   ]
