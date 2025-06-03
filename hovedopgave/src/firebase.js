@@ -12,7 +12,7 @@ const firebaseConfig = {
   storageBucket: "hovedopgave-c5c39.firebasestorage.app",
   messagingSenderId: "692133781916",
   appId: "1:692133781916:web:a63559350af82160db6859",
-  databaseURL: "https://hovedopgave-c5c39-default-rtdb.europe-west1.firebasedatabase.app"
+  databaseURL: "https://hovedopgave-c5c39-default-rtdb.europe-west1.firebasedatabase.app/"
 };
 
 // Initialize Firebase

@@ -1,5 +1,9 @@
 <script setup>
 import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
 import Onboarding1 from '../components/Onboarding1.vue'
 import Onboarding2 from '../components/Onboarding2.vue'
 import Onboarding3 from '../components/Onboarding3.vue'
@@ -21,6 +25,14 @@ function prev() {
   if (currentSlide.value > 0) {
     direction.value = 'prev'
     currentSlide.value--
+  }
+}
+
+function goBack() {
+  if (currentSlide.value === 0) {
+    router.push('guide');
+  } else {
+    prev()
   }
 }
 </script>

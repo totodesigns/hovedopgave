@@ -4,7 +4,7 @@ import Guide1 from '../components/Guide1.vue'
 import Guide2 from '../components/Guide2.vue'
 import Guide3 from '../components/Guide3.vue'
 
-const slides = [Guide1, Guide2, Guide3]
+const slides = [Guide1, Guide2, Guide3,]
 const currentSlide = ref(0)
 const direction = ref('next') // or 'prev' for animation
 

@@ -9,8 +9,7 @@ const goBack = () => {
 };
 
 const skip = () => {
-  // Gå til slutningen eller næste side
-  console.log("Spring over");
+  router.push('/onboarding');
 };
 
 const continueFlow = () => {
