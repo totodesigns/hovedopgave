@@ -31,7 +31,8 @@ const router = createRouter({
     { path: '/pdp/:id', 
       name: 'PDP', 
       component: PDP, 
-      props: true }
+      props: true 
+    }
   ]
 })
 

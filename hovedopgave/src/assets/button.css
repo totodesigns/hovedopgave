@@ -56,6 +56,26 @@ button {
     padding: 0px 12px;
 }
 
+.accent {
+    display: flex;
+    height: 32px;
+    width: fit-content;
+    padding: 0px 8px;
+    align-items: center;
+    gap: 4px;
+    border-radius: 4px;
+    border: 1px solid var(--color-border-grey-default);
+    background-color: var(--color-surface-white);
+    color: var(--color-text-black);
+    font-family: 'Fotext-Regular';
+    font-size: var(--size-md);
+    line-height: var(--size-xl);
+}
+
+.accent > .btn-wrapper > p {
+    color: var(--color-text-black);
+}
+
 a {
     font-family: 'Fotext-Regular';
     font-size: var(--size-md);

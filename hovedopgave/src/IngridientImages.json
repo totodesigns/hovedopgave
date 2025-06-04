@@ -1,0 +1,98 @@
+{
+  "aeble": {
+    "navn": "Æble",
+    "image": "/ingredienser/aeble.jpeg"
+  },
+  "aeblejuice": {
+    "navn": "Æblejuice",
+    "image": "/ingredienser/aeblejuice.jpeg"
+  },
+  "aeg": {
+    "navn": "Æg",
+    "image": "/ingredienser/aeg.jpg"
+  },
+  "gulerod": {
+    "navn": "Gulerod",
+    "image": "/ingredienser/gulerod.jpeg"
+  },
+  "hakket-oksekoed": {
+    "navn": "Hakket oksekød",
+    "image": "/ingredienser/hakket-oksekoed.png"
+  },
+  "hakket-svinekoed": {
+    "navn": "Hakket svinekød",
+    "image": "/ingredienser/hakket-svinekoed.jpeg"
+  },
+  "hakkede-tomater": {
+    "navn": "Hakkede tomater",
+    "image": "/ingredienser/hakket-tomater.jpeg"
+  },
+  "hvidloeg": {
+    "navn": "Hvidløg",
+    "image": "/ingredienser/hvidloeg.jpeg"
+  },
+  "karrypulver": {
+    "navn": "Karrypulver",
+    "image": "/ingredienser/karrypulver.jpg"
+  },
+  "kartofler": {
+    "navn": "Kartofler",
+    "image": "/ingredienser/kartofler.jpeg"
+  },
+  "kokosmaelk": {
+    "navn": "Kokosmælk",
+    "image": "/ingredienser/kokosmaelk.jpeg"
+  },
+  "kyllingebryst": {
+    "navn": "Kyllingebryst",
+    "image": "/ingredienser/kyllingebryst.jpeg"
+  },
+  "loeg": {
+    "navn": "Løg",
+    "image": "/ingredienser/loeg.png"
+  },
+  "maelk": {
+    "navn": "Mælk",
+    "image": "/ingredienser/maelk.jpeg"
+  },
+  "olivenolie": {
+    "navn": "Olivenolie",
+    "image": "/ingredienser/olivenolie.jpeg"
+  },
+  "persille": {
+    "navn": "Persille",
+    "image": "/ingredienser/persille.jpeg"
+  },
+  "revet-parmesan": {
+    "navn": "Revet parmesan",
+    "image": "/ingredienser/revet-parmesan.jpeg"
+  },
+  "ris": {
+    "navn": "Ris",
+    "image": "/ingredienser/ris.jpeg"
+  },
+  "roedbeder": {
+    "navn": "Syltede rødbeder",
+    "image": "/ingredienser/roedbeder.jpeg"
+  },
+  "selleri": {
+    "navn": "Selleri",
+    "image": "/ingredienser/selleri.jpeg"
+  },
+  "smoer": {
+    "navn": "Smør",
+    "image": "/ingredienser/smoer.jpeg"
+  },
+  "spaghetti": {
+    "navn": "Spaghetti",
+    "image": "/ingredienser/spaghetti.jpeg"
+  },
+  "tomatpure": {
+    "navn": "Tomatpuré",
+    "image": "/ingredienser/tomatpure.jpeg"
+  },
+  "mel": {
+    "navn": "Mel",
+    "image": "/ingredienser/mel.jpg"
+  }
+}
