@@ -1,11 +1,13 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 import { ref as dbRef, get } from 'firebase/database';
 import { database } from '../firebase';
 
-import ToggleChip from '../components/ToggleChip.vue'
 import HeaderBar from '../components/HeaderBar.vue';
 import RecipeSlider from '../components/RecipeSlider.vue';
+
+const router = useRouter()
 
 const searchQuery = ref('');
 const recipes = ref([]);
@@ -13,20 +15,42 @@ const recipes = ref([]);
 onMounted(async () => {
   const snapshot = await get(dbRef(database, '/'));
   if (snapshot.exists()) {
+    const data = Object.values(snapshot.val());
+
+    recipes.value = data.map(recipe => {
+      const ingredienser = Array.isArray(recipe.ingredienser)
+        ? recipe.ingredienser
+        : Object.values(recipe.ingredienser || {});
+      return {
+        ...recipe,
+        ingredienser,
+        antalIngredienser: Object.keys(ingredienser).length
+      };
+    });
+  } else {
+    console.log('Ingen data i database');
     recipes.value = Object.values(snapshot.val());
   }
 });
 
+const normalizeString = (str) => {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
+
 const filteredRecipes = computed(() => {
-  if (!searchQuery.value) return [];
+  const search = normalizeString(searchQuery.value.trim());
+  if (!search) return recipes.value;
+
   return recipes.value.filter(recipe =>
-    recipe.ingredienser?.some(ingredienser =>
-      ingredienser.toLowerCase().includes(searchQuery.value.toLowerCase())
+    recipe.ingredienser.some(ing =>
+      normalizeString(ing).includes(search)
     )
   );
 });
 
-const isOn = ref(false)
+const goToFridge = () => {
+  router.push('/fridge');
+};
 
 </script>
 
@@ -46,12 +70,9 @@ const isOn = ref(false)
           </svg>
         </div>
         <div class="btn-wrapper">
-          <p>Scan dit køleskab</p>
+          <p @click="goToFridge">Scan dit køleskab</p>
         </div>
       </button>
-    </div>
-    <div>
-      <ToggleChip v-model="isOn">Click Me</ToggleChip>
     </div>
   </div>
 </template>

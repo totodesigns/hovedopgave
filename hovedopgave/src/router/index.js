@@ -39,7 +39,6 @@ const router = createRouter({
       name: 'Fridge',
       component: Fridge
     },
-      
   ]
 })
 

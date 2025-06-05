@@ -1,0 +1,122 @@
+{
+  "aeble": {
+    "navn": "Æble",
+    "image": "/ingredienser/aeble.jpeg",
+    "tilbud": false
+  },
+  "aeblejuice": {
+    "navn": "Æblejuice",
+    "image": "/ingredienser/aeblejuice.jpeg",
+    "tilbud": false
+  },
+  "aeg": {
+    "navn": "Æg",
+    "image": "/ingredienser/aeg.jpg",
+    "tilbud": false
+  },
+  "gulerod": {
+    "navn": "Gulerod",
+    "image": "/ingredienser/gulerod.jpeg",
+    "tilbud": true
+  },
+  "hakket-oksekoed": {
+    "navn": "Hakket oksekød",
+    "image": "/ingredienser/hakket-oksekoed.png",
+    "tilbud": true
+  },
+  "hakket-svinekoed": {
+    "navn": "Hakket svinekød",
+    "image": "/ingredienser/hakket-svinekoed.jpeg",
+    "tilbud": true
+  },
+  "hakkede-tomater": {
+    "navn": "Hakkede tomater",
+    "image": "/ingredienser/hakket-tomater.jpeg",
+    "tilbud": false
+  },
+  "hvidloeg": {
+    "navn": "Hvidløg",
+    "image": "/ingredienser/hvidloeg.jpeg",
+    "tilbud": true
+  },
+  "karrypulver": {
+    "navn": "Karrypulver",
+    "image": "/ingredienser/karrypulver.jpg",
+    "tilbud": false
+  },
+  "kartofler": {
+    "navn": "Kartofler",
+    "image": "/ingredienser/kartofler.jpeg",
+    "tilbud": false
+  },
+  "kokosmaelk": {
+    "navn": "Kokosmælk",
+    "image": "/ingredienser/kokosmaelk.jpeg",
+    "tilbud": true
+  },
+  "kyllingebryst": {
+    "navn": "Kyllingebryst",
+    "image": "/ingredienser/kyllingebryst.jpeg",
+    "tilbud": false
+  },
+  "loeg": {
+    "navn": "Løg",
+    "image": "/ingredienser/loeg.png",
+    "tilbud": false
+  },
+  "maelk": {
+    "navn": "Mælk",
+    "image": "/ingredienser/maelk.jpeg",
+    "tilbud": false
+  },
+  "mel": {
+    "navn": "Mel",
+    "image": "/ingredienser/mel.jpg",
+    "tilbud": true
+  },
+  "olivenolie": {
+    "navn": "Olivenolie",
+    "image": "/ingredienser/olivenolie.jpeg",
+    "tilbud": false
+  },
+  "persille": {
+    "navn": "Persille",
+    "image": "/ingredienser/persille.jpeg",
+    "tilbud": false
+  },
+  "revet-parmesan": {
+    "navn": "Revet parmesan",
+    "image": "/ingredienser/revet-parmesan.jpeg",
+    "tilbud": true
+  },
+  "ris": {
+    "navn": "Ris",
+    "image": "/ingredienser/ris.jpeg",
+    "tilbud": false
+  },
+  "roedbeder": {
+    "navn": "Syltede rødbeder",
+    "image": "/ingredienser/roedbeder.jpeg",
+    "tilbud": true
+  },
+  "selleri": {
+    "navn": "Selleri",
+    "image": "/ingredienser/selleri.jpeg",
+    "tilbud": false
+  },
+  "smoer": {
+    "navn": "Smør",
+    "image": "/ingredienser/smoer.jpeg",
+    "tilbud": false
+  },
+  "spaghetti": {
+    "navn": "Spaghetti",
+    "image": "/ingredienser/spaghetti.jpeg",
+    "tilbud": true
+  },
+  "tomatpure": {
+    "navn": "Tomatpuré",
+    "image": "/ingredienser/tomatpure.jpeg",
+    "tilbud": false
+  }
+}

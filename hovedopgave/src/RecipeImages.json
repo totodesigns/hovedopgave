@@ -1,0 +1,35 @@
+{
+  "0": {
+    "image": "/food/0-spaghetti-bolognese.jpeg"
+  },
+  "1": {
+    "image": "/food/1-kylling-i-karry.jpeg"
+  },
+  "2": {
+    "image": "/food/2-kartoffelmos-med-frikadeller.jpg"
+  },
+  "3": {
+    "image": "/food/3-ovnbagt-laks-med-grøntsager.avif"
+  },
+  "4": {
+    "image": "/food/4-vegetarisk-chili-sin-carne.avif"
+  },
+  "5": {
+    "image": "/food/5-pasta-carbonara.avif"
+  },
+  "6": {
+    "image": "/food/6-stegte-nudler-med-grøntsager.avif"
+  },
+  "7": {
+    "image": "/food/7-kyllingefrikadeller-med-salat.jpg"
+  },
+  "8": {
+    "image": "/food/8-tomatsuppe-med-basilikum.avif"
+  },
+  "9": {
+    "image": "/food/9-fiskefrikadeller-med-remoulade.jpg"
+  },
+  "10": {
+    "image": "/food/10-biksemad.jpg"
+  }
+}

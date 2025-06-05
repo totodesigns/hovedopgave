@@ -1,7 +1,11 @@
 <script setup>
 import { useRouter } from 'vue-router';
 
-const props = defineProps({ recipe: Object });
+const props = defineProps({ 
+    recipe: Object, 
+    type: Array,
+});
+
 const router = useRouter();
 
 const openPDP = () => {
@@ -21,6 +25,7 @@ const openPDP = () => {
         </div>
         <div class="card-content">
             <h3>{{ recipe.navn }}</h3>
+            
             <div class="card-list">
                 <div class="card-list-item">
                     <svg width="16" height="16" viewBox="0 0 24 24">
