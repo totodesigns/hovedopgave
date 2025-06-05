@@ -6,6 +6,7 @@ import { database } from '../firebase';
 
 import HeaderBar from '../components/HeaderBar.vue';
 import RecipeSlider from '../components/RecipeSlider.vue';
+import BottomSheet from '../components/BottomSheet.vue'
 
 const router = useRouter()
 
@@ -48,17 +49,37 @@ const filteredRecipes = computed(() => {
   );
 });
 
+const showFilter = ref(false)
+const showPeople = ref(false)
+
 const goToFridge = () => {
-  router.push('/fridge');
+  router.push('/scanner');
 };
 
 </script>
 
 <template>
+  <HeaderBar v-model:search="searchQuery" />
   <div class="page-wrapper">
-    <HeaderBar v-model:search="searchQuery" />
+    <div class="chip-bar">
+      <div class="filter-chip" @click="showFilter = true">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path class="i-fill-black" d="M11.9873 15.0127V17.5127H20.9873V18.4873H11.9873V20.9873H11.0127V15.0127H11.9873ZM8.9873 17.5127V18.4873H3.0127V17.5127H8.9873ZM8.9873 9.0127V14.9873H8.0127V12.4873H3.0127V11.5127H8.0127V9.0127H8.9873ZM20.9873 11.5127V12.4873H11.0127V11.5127H20.9873ZM15.9873 3.0127V5.5127H20.9873V6.4873H15.9873V8.9873H15.0127V3.0127H15.9873ZM12.9873 5.5127V6.4873H3.0127V5.5127H12.9873Z" />
+        </svg>
+        Alle filtre
+      </div>
+      <div class="vert-divider"></div>
+    </div>
+    <div class="title-bar">
+      <p class="base-strong">Opskrifter til dig</p>
+      <div class="people-filter-btn" @click="showPeople = true">
+        <p>Antal personer: </p>
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path class="i-str-white" d="M19 9L12 16L5 9" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
 
-    <p class="base-strong">Opskrifter til dig</p>
     <!-- Vis RecipeSlider kun hvis der er en søgning -->
     <RecipeSlider v-if="searchQuery" :recipes="filteredRecipes" />
     <div class="empty-content" v-else>
@@ -75,12 +96,140 @@ const goToFridge = () => {
       </button>
     </div>
   </div>
+
+  <!-- Antal personer -->
+  <BottomSheet :isOpen="showPeople" :close="() => showPeople = false">
+      <div class="sheet-wrapper">
+          <h2>Antal personer</h2>
+          <fieldset class="radio-group">
+            <label>
+              <input type="radio" name="options" value="1" checked>
+              <p>1-2 personer</p>
+            </label>
+
+            <label>
+              <input type="radio" name="options" value="2">
+              <p>3-4 personer</p>
+            </label>
+
+            <label>
+              <input type="radio" name="options" value="3">
+              <p>5-6 personer</p>
+            </label>
+
+            <label>
+              <input type="radio" name="options" value="4" checked>
+              <p>7-8 personer</p>
+            </label>
+
+            <label>
+              <input type="radio" name="options" value="5">
+              <p>9-10 personer</p>
+            </label>
+
+            <label>
+              <input type="radio" name="options" value="6">
+              <p>10+ personer</p>
+            </label>
+          </fieldset>
+
+          <button class="primary" @click="showPeople = false" >
+              <div class="btn-wrapper">
+                  <p>Anvend</p>
+              </div>
+          </button>    
+      </div>
+  </BottomSheet>
+
+  <!-- Filters -->  
+  <BottomSheet :isOpen="showFilter" :close="() => showFilter = false">
+      <div class="sheet-wrapper">
+          <h2>Filtre</h2>
+          <button class="primary" @click="showFilter = false" >
+              <div class="btn-wrapper">
+                  <p>Anvend</p>
+              </div>
+          </button>    
+      </div>
+  </BottomSheet>
 </template>
 
 <style scoped>
 
+  .sheet-wrapper > h2, label > p {
+    color: var(--color-text-black);
+  }
+
+  .sheet-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .title-bar {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .people-filter-btn {
+    display: flex;
+    gap: 2px;
+  }
+
+  .people-filter-btn > p {
+    margin-top: 2px;
+  }
+
+  .filter-chip {
+      display: flex;
+      height: 32px;
+      width: fit-content;
+      padding: 0px 8px;
+      align-items: center;
+      gap: 4px;
+      border-radius: 4px;
+      background-color: var(--color-surface-white);
+      font-family: 'Fotext-Regular';
+      cursor: pointer;
+  }
+
+  .radio-group {
+    border: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .radio-group label {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Fotext-Regular';
+    cursor: pointer;
+  }
+
+  .page-wrapper {
+    padding: 16px 16px 92px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
   button {
     margin: 0px;
+  }
+
+  .chip-bar {
+    display: flex;
+    gap: 8px;
+  }
+
+  .vert-divider {
+    border: 1px solid var(--color-border-grey-default);
   }
 
   .empty-content {

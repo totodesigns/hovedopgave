@@ -1,7 +1,9 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useRouter } from 'vue-router';
 import BottomSheet from '../components/BottomSheet.vue'
 
+const router = useRouter()
 const showFridge = ref(false)
 const showStregkode = ref(false)
 const showInfo = ref(false)
@@ -19,9 +21,9 @@ const startCamera = async () => {
 }
 
 const stopCamera = () => {
-  if (stream) {
-    stream.getTracks().forEach(track => track.stop())
-    video.value.srcObject = null
+  const video = document.querySelector('video')
+  if (video) {
+    video.srcObject = null
   }
 }
 
@@ -32,13 +34,18 @@ onMounted(() => {
 onUnmounted(() => {
   stopCamera()
 })
+
+const goToPLP = () => {
+  router.push('/plp');
+};
+
 </script>
 
 <template>
     <div class="page-wrapper">
         <div class="header-bar">
             <div class="icon-row">
-                <svg width="24" height="24" viewBox="0 0 24 24">
+                <svg width="24" height="24" viewBox="0 0 24 24" @click="goToPLP">
                     <path class="i-str-white" d="M15 19L8 12L15 5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 <svg width="24" height="24" viewBox="0 0 24 24" @click="showInfo = true">
@@ -60,7 +67,7 @@ onUnmounted(() => {
             </div>
             <div class="picture-content">
                 <p class="lg-strong">Upload et billede af dit køleskab</p>
-                <div class="upload-wrapper" @click="showKøleskab = true">
+                <div class="upload-wrapper" @click="showFridge = true">
                     <svg width="24" height="24" viewBox="0 0 24 24">
                         <path class="i-str-black" d="M21.25 13V8.5C21.25 7.17392 20.7232 5.90215 19.7855 4.96447C18.8479 4.02678 17.5761 3.5 16.25 3.5H7.75C6.42392 3.5 5.15215 4.02678 4.21447 4.96447C3.27678 5.90215 2.75 7.17392 2.75 8.5V15.5C2.75 16.1566 2.87933 16.8068 3.1306 17.4134C3.38188 18.02 3.75017 18.5712 4.21447 19.0355C5.15215 19.9732 6.42392 20.5 7.75 20.5H14.01" stroke-linecap="round" stroke-linejoin="round"/>
                         <path class="i-str-black" d="M3.01001 17L5.75001 13.8C6.10985 13.4426 6.58212 13.2205 7.08689 13.1713C7.59166 13.1221 8.09793 13.2488 8.52001 13.53C8.94209 13.8112 9.44836 13.9379 9.95313 13.8887C10.4579 13.8395 10.9302 13.6174 11.29 13.26L13.62 10.93C14.2895 10.2582 15.1759 9.84621 16.121 9.76745C17.0662 9.68869 18.0086 9.94832 18.78 10.5L21.25 12.41M8.01001 10.17C8.228 10.1687 8.4436 10.1245 8.6445 10.0398C8.8454 9.95518 9.02766 9.83181 9.18088 9.67673C9.33409 9.52166 9.45527 9.33792 9.53748 9.13602C9.61969 8.93412 9.66132 8.718 9.66001 8.50001C9.6587 8.28201 9.61446 8.06641 9.52982 7.86551C9.44519 7.66461 9.32181 7.48235 9.16674 7.32914C9.01166 7.17592 8.82793 7.05475 8.62603 6.97254C8.42412 6.89033 8.208 6.84869 7.99001 6.85001C7.54975 6.85266 7.12858 7.03009 6.81914 7.34328C6.50971 7.65647 6.33736 8.07975 6.34001 8.52001C6.34266 8.96027 6.5201 9.38144 6.83328 9.69087C7.14647 10.0003 7.56975 10.1727 8.01001 10.17Z" stroke-linecap="round" stroke-linejoin="round"/>

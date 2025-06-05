@@ -1,12 +1,14 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { ref as dbRef, get } from 'firebase/database';
 import { database } from '../firebase.js';
 import RecipeImages from "../RecipeImages.json";
 import AnIngredientItem from '../components/AnIngredientItem.vue';
+import BottomSheet from '../components/BottomSheet.vue'
 
 const route = useRoute();
+const router = useRouter();
 const recipeId = route.params.id;
 
 const error = ref(null);
@@ -37,14 +39,19 @@ const antalIngredienser = computed(() => {
     : Object.values(recipe.value.ingredienser || {}).length;
 });
 
-</script>
+const goToPLP = () => {
+  router.push('/plp');
+};
 
+const showPeople = ref(false)
+
+</script>
 
 <template>
   <div class="page-wrapper">
     <!-- Header -->
     <div class="header">
-      <button @click="goBack" class="icon-btn" aria-label="Tilbage">
+      <button @click="goToPLP" class="icon-btn" aria-label="Tilbage">
         <div class="icon-wrapper">
             <svg width="24" height="24" viewBox="0 0 24 24">
               <path class="i-str-black" d="M15 19L8 12L15 5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -70,7 +77,6 @@ const antalIngredienser = computed(() => {
       <div class="info-wrapper">
         <div class="title-wrapper">
           <h1 class="title">{{ recipe.navn }}</h1>
-
           <div class="stickers-wrapper">
             <div class="ai-tag">
               <div class="icon-wrapper">
@@ -102,7 +108,7 @@ const antalIngredienser = computed(() => {
                   <path class="i-str-black" d="M14 14.5C17.0376 14.5 19.5 16.9624 19.5 20C19.5 20.2761 19.2761 20.5 19 20.5H5C4.72386 20.5 4.5 20.2761 4.5 20C4.5 16.9624 6.96243 14.5 10 14.5H14Z" stroke-linejoin="round"/>
                 </svg>
               </div>
-              <p class="people">3-4 Pers.</p>
+              <p class="people" @click="showPeople = true">3-4 Pers.</p>
               <div class="icon-wrapper">
                 <svg width="24" height="24" viewBox="0 0 24 24">
                   <path class="i-str-black" d="M19 9L12 16L5 9" stroke-linecap="round" stroke-linejoin="round"/>
@@ -111,7 +117,7 @@ const antalIngredienser = computed(() => {
             </button>
           </div>
         </div>
-        <p class="description">{{ recipe.description }}</p>
+        <p class="description">{{ recipe.beskrivelse }}</p>
       </div>
     
 <!-------------------------------------------------------- ooo --------------------------------------------------------->
@@ -141,14 +147,94 @@ const antalIngredienser = computed(() => {
 
       <!-- Fremgangsmåde -->
       <div class="section">
-        <h2>Fremgangsmåde</h2>
-        <p class="method">{{ recipe.method }}</p>
+        <h2 class="title">Fremgangsmåde</h2>
+        <p class="description">{{ recipe.fremgangsmaade }}</p>
       </div>
     </div>
   </div>
+
+  <!-- Antal personer -->
+  <BottomSheet :isOpen="showPeople" :close="() => showPeople = false">
+      <div class="sheet-wrapper">
+          <h2>Antal personer</h2>
+          <fieldset class="radio-group">
+            <label>
+              <input type="radio" name="options" value="1" checked>
+              <p>1-2 personer</p>
+            </label>
+
+            <label>
+              <input type="radio" name="options" value="2">
+              <p>3-4 personer</p>
+            </label>
+
+            <label>
+              <input type="radio" name="options" value="3">
+              <p>5-6 personer</p>
+            </label>
+
+            <label>
+              <input type="radio" name="options" value="4" checked>
+              <p>7-8 personer</p>
+            </label>
+
+            <label>
+              <input type="radio" name="options" value="5">
+              <p>9-10 personer</p>
+            </label>
+
+            <label>
+              <input type="radio" name="options" value="6">
+              <p>10+ personer</p>
+            </label>
+          </fieldset>
+
+          <button class="primary" @click="showPeople = false" >
+              <div class="btn-wrapper">
+                  <p>Anvend</p>
+              </div>
+          </button>    
+      </div>
+  </BottomSheet>
+
 </template>
 
 <style scoped>
+
+.sheet-wrapper > h2, label > p {
+  color: var(--color-text-black);
+}
+
+.sheet-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+  .radio-group {
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.radio-group label {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Fotext-Regular';
+  cursor: pointer;
+}
+
+.add-to-list {
+  position: fixed;
+  width: 343px;
+  bottom: 24px;
+}
 
 li {
   list-style: none;
@@ -165,6 +251,8 @@ p {
 .page-wrapper {
   padding: 0;
   gap: 16px;
+  background-color: var(--color-surface-white);
+  background-image: none;
 }
 
 .header {
@@ -198,6 +286,7 @@ p {
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
+  margin-bottom: 16px;
 }
 
 .title {
@@ -209,7 +298,13 @@ p {
   padding: 16px;
   border: none;
   border-radius: 0;
-  padding-bottom: 165px;
+  padding-bottom: 92px;
+}
+
+.title-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .stickers-wrapper {
@@ -223,7 +318,6 @@ p {
   display: flex;
   flex-direction: row;
   width: fit-content;
-  height: 20px;
   align-items: center;
   gap: 2px;
   background: var(--color-surface-awareness-default);
@@ -231,14 +325,12 @@ p {
   color: var(--color-text-black);
   padding: 2px 6px;
   border-radius: 4px;
-  margin-top: 6px;
 }
 
 .ai-tag {
   display: flex;
   flex-direction: row;
   width: fit-content;
-  height: 20px;
   align-items: center;
   gap: 2px;
   background: var(--color-surface-info-default);
@@ -246,7 +338,7 @@ p {
   color: var(--color-text-black);
   padding: 2px 6px;
   border-radius: 4px;
-  margin-top: 6px;
+  height: 24px;
 }
 
 .base-strong {
@@ -280,14 +372,14 @@ h3 {
 }
 
 .description {
-  font-size: 14px;
-  color: #555;
-  margin-top: 10px;
-  line-height: 1.4;
+  color: var(--color-text-grey-default);
 }
 
 .section {
   margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .section-header {
@@ -302,14 +394,6 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 12px;
-}
-
-.method {
-  font-size: 14px;
-  color: #444;
-  white-space: pre-line;
-  line-height: 1.6;
-  margin-top: 8px;
 }
 
 .bottom-nav {
