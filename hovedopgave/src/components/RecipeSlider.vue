@@ -15,16 +15,16 @@ const recipesWithId = props.recipes.map((r, index) => ({
   ...r
 }));
 
-console.log('Alle opskrifter:', props.recipes)
-
 </script>
 
 <template>
   <div v-if="recipes.length" class="slider">
     <div class="cards">
-      <RecipeCard v-for="(recipe, index) in recipesWithId" 
-                  :key="index" 
-                  :recipe="recipe" />
+      <RecipeCard 
+        v-for="recipe in recipesWithId" 
+        :key="recipe.id" 
+        :recipe="recipe" 
+      />
     </div>
   </div>
 </template>

@@ -1,16 +1,10 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { ref as dbRef, get } from 'firebase/database';
 import { database } from '../firebase.js';
 import RecipeImages from "../RecipeImages.json";
-import { computed } from 'vue';
-import AnIndgredientItem from '../components/AnIndgredientItem.vue'
-import IngridientImages from "../IngridientImages.json";
-
-// Firebase realtime database initéres allerede et andet sted i dit projekt
-
-const ingredientCount = computed(() => recipe.value.ingredienser?.length || 0);
+import AnIngredientItem from '../components/AnIngredientItem.vue';
 
 const route = useRoute();
 const recipeId = route.params.id;
@@ -21,32 +15,30 @@ const recipe = ref({
   ingredienser: []
 });
 
-console.log("component mounted");
-
 onMounted(async () => {
-  console.log("onMounted kører");
   try {
     const recipeRef = dbRef(database, `${recipeId}`);
     const snapshot = await get(recipeRef);
-
     if (snapshot.exists()) {
       recipe.value = snapshot.val();
       const localImage = RecipeImages[recipeId];
       imageUrl.value = localImage ? localImage.image : null;
-      
-      console.log("route.params.id:", recipeId);
-      console.log("RecipeImages keys:", Object.keys(RecipeImages));
-      console.log("localImage:", RecipeImages[recipeId]);
-
     } else {
       error.value = 'Opskrift ikke fundet';
     }
   } catch (e) {
     error.value = 'Fejl ved hentning af opskrift: ' + e.message;
   }
+})
+
+const antalIngredienser = computed(() => {
+  return Array.isArray(recipe.value.ingredienser)
+    ? recipe.value.ingredienser.length
+    : Object.values(recipe.value.ingredienser || {}).length;
 });
 
 </script>
+
 
 <template>
   <div class="page-wrapper">
@@ -100,7 +92,7 @@ onMounted(async () => {
                   <path class="i-fill-black" d="M11.5 3C14.0196 3 16.4359 4.00089 18.2175 5.78249C19.9991 7.56408 21 9.98044 21 12.5C21 15.0196 19.9991 17.4359 18.2175 19.2175C16.4359 20.9991 14.0196 22 11.5 22C8.98044 22 6.56408 20.9991 4.78249 19.2175C3.00089 17.4359 2 15.0196 2 12.5C2 9.98044 3.00089 7.56408 4.78249 5.78249C6.56408 4.00089 8.98044 3 11.5 3ZM11.5 4C9.24566 4 7.08365 4.89553 5.48959 6.48959C3.89553 8.08365 3 10.2457 3 12.5C3 14.7543 3.89553 16.9163 5.48959 18.5104C7.08365 20.1045 9.24566 21 11.5 21C12.6162 21 13.7215 20.7801 14.7528 20.353C15.7841 19.9258 16.7211 19.2997 17.5104 18.5104C18.2997 17.7211 18.9258 16.7841 19.353 15.7528C19.7801 14.7215 20 13.6162 20 12.5C20 10.2457 19.1045 8.08365 17.5104 6.48959C15.9163 4.89553 13.7543 4 11.5 4ZM11 7H12V12.42L16.7 15.13L16.2 16L11 13V7Z"/>
               </svg>
             </div>
-            <span>{{ recipe.tidsestimat }}</span>
+            <p>{{ recipe.tidsestimat }}</p>
           </div>
           <div class="detail-item">
             <button class="accent">
@@ -125,20 +117,14 @@ onMounted(async () => {
 <!-------------------------------------------------------- ooo --------------------------------------------------------->
 
       <!-- Ingredienser -->
-      <div class="ingridients-wrapper">
+      <div class="ingredients-wrapper">
         <div class="section-header">
           <h3>Ingredienser</h3>
-          <span>{{ ingredientCount }} ingredienser</span>
-
-
+          <p>{{ antalIngredienser }} ingredienser </p>
         </div>
 
-        <div class="ingredients">
-          <AnIndgredientItem
-            v-for="(item, index) in recipe.ingredienser"
-            :key="index"
-            :ingredient="item"
-          />
+        <div v-for="(unit, name) in recipe.ingredienser" :key="name">
+          <AnIngredientItem :name="name" :unit="unit" />
         </div>
 
         <button class="primary add-to-list">
@@ -163,6 +149,18 @@ onMounted(async () => {
 </template>
 
 <style scoped>
+
+li {
+  list-style: none;
+}
+
+p {
+  color: var(--color-text-black);
+}
+
+.btn-wrapper > p {
+  color: var(--color-text-white);
+}
 
 .page-wrapper {
   padding: 0;
@@ -300,71 +298,10 @@ h3 {
   font-weight: 600;
 }
 
-.ingredients {
-  margin-top: 16px;
-  list-style: none;
-  padding: 0;
-}
-
-.ingredient-item {
+.ingredients-wrapper {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 12px;
-  margin-bottom: 12px;
-}
-
-.ingredient-left {
-  display: flex;
+  flex-direction: column;
   gap: 12px;
-  align-items: center;
-}
-
-.ingredient-image {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  border-radius: 6px;
-}
-
-.ingredient-name {
-  font-weight: 600;
-}
-
-.offer-badge {
-  background: #fde047;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 2px 4px;
-  border-radius: 4px;
-  margin-left: 4px;
-}
-
-.ingredient-amount {
-  font-size: 13px;
-  color: #666;
-}
-
-.trash-button {
-  background: none;
-  border: none;
-  color: #bbb;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.add-to-list {
-  position: fixed;
-  bottom: 110px;
-  margin: 0 16px;
-  left: 0;
-  right: 0;
-  width: 343px;
-  padding: 8px 0;
-  font-size: 11px;
-  text-align: center;
-  z-index: 12;
 }
 
 .method {

@@ -1,13 +1,13 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 import { ref as dbRef, get } from 'firebase/database';
 import { database } from '../firebase';
 
-import ToggleChip from '../components/ToggleChip.vue'
 import HeaderBar from '../components/HeaderBar.vue';
 import RecipeSlider from '../components/RecipeSlider.vue';
 
-import IngridientImages from "../IngridientImages.json";
+const router = useRouter()
 
 const searchQuery = ref('');
 const recipes = ref([]);
@@ -17,13 +17,18 @@ onMounted(async () => {
   if (snapshot.exists()) {
     const data = Object.values(snapshot.val());
 
-    // Sikrer at ingredienser altid er et array
-    recipes.value = data.map(recipe => ({
-      ...recipe,
-      ingredienser: Array.isArray(recipe.ingredienser)
+    recipes.value = data.map(recipe => {
+      const ingredienser = Array.isArray(recipe.ingredienser)
         ? recipe.ingredienser
-        : Object.values(recipe.ingredienser || {})
-    }));
+        : Object.values(recipe.ingredienser || {});
+      return {
+        ...recipe,
+        ingredienser,
+        antalIngredienser: Object.keys(ingredienser).length
+      };
+    });
+  } else {
+    console.log('Ingen data i database');
   }
 });
 
@@ -32,21 +37,19 @@ const normalizeString = (str) => {
 }
 
 const filteredRecipes = computed(() => {
-  const search = normalizeString(searchQuery.value);
-  if (!search) return [];
+  const search = normalizeString(searchQuery.value.trim());
+  if (!search) return recipes.value;
 
-  const result = recipes.value.filter(recipe =>
+  return recipes.value.filter(recipe =>
     recipe.ingredienser.some(ing =>
-      ing?.navn && normalizeString(ing.navn).includes(search)
+      normalizeString(ing).includes(search)
     )
   );
-
-  console.log('Søgeord:', search);
-  console.log('Antal matches:', result.length);
-  return result;
 });
 
-const isOn = ref(false)
+const goToFridge = () => {
+  router.push('/fridge');
+};
 
 </script>
 
@@ -66,12 +69,9 @@ const isOn = ref(false)
           </svg>
         </div>
         <div class="btn-wrapper">
-          <p>Scan dit køleskab</p>
+          <p @click="goToFridge">Scan dit køleskab</p>
         </div>
       </button>
-    </div>
-    <div>
-      <ToggleChip v-model="isOn">Click Me</ToggleChip>
     </div>
   </div>
 </template>
