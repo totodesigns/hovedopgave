@@ -2,8 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Guide from '../views/Guide.vue'
 import LoginScreen from '../views/LoginScreen.vue'
 import HomePage from '../views/PLP.vue'
-import Onboarding from '@/views/Onboarding.vue'
+import Onboarding from '../views/Onboarding.vue'
 import PDP from '../views/PDP.vue';
+import Fridge from '../views/Fridge.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,7 +33,12 @@ const router = createRouter({
       name: 'PDP', 
       component: PDP, 
       props: true 
-    } 
+    },
+    {
+      path: '/scanner',
+      name: 'Fridge',
+      component: Fridge
+    },
   ]
 })
 

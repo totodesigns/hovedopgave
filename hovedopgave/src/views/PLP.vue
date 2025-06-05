@@ -29,6 +29,7 @@ onMounted(async () => {
     });
   } else {
     console.log('Ingen data i database');
+    recipes.value = Object.values(snapshot.val());
   }
 });
 
