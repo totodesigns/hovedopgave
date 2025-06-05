@@ -1,17 +1,37 @@
 <script setup>
-import { useRoute } from 'vue-router';
-const route = useRoute();
 
+import { useRoute, useRouter } from 'vue-router'
+import { onMounted } from 'vue'
+import IngridientImages from "../IngridientImages.json";
 
-defineProps(['ingredient'])
+const router = useRouter()
+const route = useRoute()
 
+const props = defineProps(['ingredient'])
+
+onMounted(() => {
+  console.log('Ingredient:', props.ingredient)
+})
+
+const goToPDP = (id) => {
+  console.log('Navigating to PDP with id:', id)
+  router.push({ name: 'PDP', params: { id } })
+}
 </script>
 
+
 <template>
+    <div>
+        <button @click="goToPDP(ingredient.id)">Gå til PDP</button>
+    </div>
+
     <div class="ingredient-item">
 
         <div class="ingredient-image-wrapper">
-
+            <img v-if="imageUrl" :src="imageUrl" :alt="ingredient.navn || 'Billede'" class="ingredient-image"/>
+        </div>
+        <div class="ingredient-item">
+        <p>TEST: {{ ingredient?.name }}</p>
         </div>
 
         <div>
@@ -39,5 +59,6 @@ defineProps(['ingredient'])
     height: 48px;
     width: 100%;
     background-color: var(--color-surface-white);
+    color: var(--color-text-black);
 }
 </style>

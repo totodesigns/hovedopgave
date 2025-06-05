@@ -7,25 +7,43 @@ import ToggleChip from '../components/ToggleChip.vue'
 import HeaderBar from '../components/HeaderBar.vue';
 import RecipeSlider from '../components/RecipeSlider.vue';
 
+import IngridientImages from "../IngridientImages.json";
+
 const searchQuery = ref('');
 const recipes = ref([]);
 
 onMounted(async () => {
   const snapshot = await get(dbRef(database, '/'));
   if (snapshot.exists()) {
-    recipes.value = Object.values(snapshot.val());
-  } else {
-    console.log("lol");
+    const data = Object.values(snapshot.val());
+
+    // Sikrer at ingredienser altid er et array
+    recipes.value = data.map(recipe => ({
+      ...recipe,
+      ingredienser: Array.isArray(recipe.ingredienser)
+        ? recipe.ingredienser
+        : Object.values(recipe.ingredienser || {})
+    }));
   }
 });
 
+const normalizeString = (str) => {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
+
 const filteredRecipes = computed(() => {
-  if (!searchQuery.value) return [];
-  return recipes.value.filter(recipe =>
-    recipe.ingredienser?.some(ingredienser =>
-      ingredienser.toLowerCase().includes(searchQuery.value.toLowerCase())
+  const search = normalizeString(searchQuery.value);
+  if (!search) return [];
+
+  const result = recipes.value.filter(recipe =>
+    recipe.ingredienser.some(ing =>
+      ing?.navn && normalizeString(ing.navn).includes(search)
     )
   );
+
+  console.log('Søgeord:', search);
+  console.log('Antal matches:', result.length);
+  return result;
 });
 
 const isOn = ref(false)

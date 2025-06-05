@@ -55,6 +55,10 @@
     "navn": "Mælk",
     "image": "/ingredienser/maelk.jpeg"
   },
+  "mel": {
+    "navn": "Mel",
+    "image": "/ingredienser/mel.jpg"
+  },
   "olivenolie": {
     "navn": "Olivenolie",
     "image": "/ingredienser/olivenolie.jpeg"
@@ -90,9 +94,5 @@
   "tomatpure": {
     "navn": "Tomatpuré",
     "image": "/ingredienser/tomatpure.jpeg"
-  },
-  "mel": {
-    "navn": "Mel",
-    "image": "/ingredienser/mel.jpg"
   }
 }

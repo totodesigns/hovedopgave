@@ -1,20 +1,30 @@
-<!--<script setup>
+<script setup>
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { ref as dbRef, get } from 'firebase/database';
 import { database } from '../firebase.js';
 import RecipeImages from "../RecipeImages.json";
+import { computed } from 'vue';
+import AnIndgredientItem from '../components/AnIndgredientItem.vue'
+import IngridientImages from "../IngridientImages.json";
 
 // Firebase realtime database initéres allerede et andet sted i dit projekt
+
+const ingredientCount = computed(() => recipe.value.ingredienser?.length || 0);
 
 const route = useRoute();
 const recipeId = route.params.id;
 
-const recipe = ref({});
 const error = ref(null);
 const imageUrl = ref('');
+const recipe = ref({
+  ingredienser: []
+});
+
+console.log("component mounted");
 
 onMounted(async () => {
+  console.log("onMounted kører");
   try {
     const recipeRef = dbRef(database, `${recipeId}`);
     const snapshot = await get(recipeRef);
@@ -40,71 +50,6 @@ onMounted(async () => {
 
 <template>
   <div class="page-wrapper">
-    <div v-if="recipe">
-      <img v-if="imageUrl" :src="imageUrl" :alt="recipe.navn || 'Billede'" class="recipe-image"/>
-      <h1>{{ recipe.navn }}</h1>
-      <h2>{{ recipe.antalIngredienser }}</h2>
-      <h2>{{ recipe.tidsestimat }}</h2>
-    </div>
-  </div>
-</template>
-
-<style scoped>
- .recipe-image {
-   display: flex;
-   margin: 20px 20px 20px 20px;
-   width: 100%;
-   height: auto;
- }
-</style>
--->
-
-<script setup>
-
-import AnIndgredientItem from '../components/AnIndgredientItem.vue'
-
-
-
-const recipe = {
-  image: '/food/0-spaghetti-bolognese.jpeg',
-  time: '45 min.',
-  portions: '3-4 pers.',
-  description:
-    'Klassisk italiensk lasagne med bechamelsauce og oksekød. Denne variant indeholder ingen tomater og bruger dine bønner i køleskabet.',
-  ingredients: [
-    {
-      name: 'Salling Agurk',
-      amount: '1 stk',
-      offer: true,
-      image: 'https://via.placeholder.com/40x40.png?text=Agurk',
-    },
-    {
-      name: 'Princip Sild',
-      amount: '500g',
-      offer: true,
-      image: 'https://via.placeholder.com/40x40.png?text=Sild',
-    },
-    {
-      name: 'Les Jamelles Merlot Rødvin',
-      amount: '1 L',
-      offer: false,
-      image: 'https://via.placeholder.com/40x40.png?text=Vin',
-    },
-    {
-      name: 'Økologiske Bananer',
-      amount: '4 stk',
-      offer: false,
-      image: 'https://via.placeholder.com/40x40.png?text=Ban',
-    },
-  ],
-  method: `Del mozzarellakuglerne i små stykker og kom dem i en skål. Rør piskefløden i sammen og læg låg på.
-
-Sæt i køleskabet i minimum 1-2 timer eller til næste dag. Rør godt igennem og smag til med salt og friskkværnet peber. Hæld lidt olivenolie over inden servering.`,
-};
-</script>
-
-<template>
-  <div class="page-wrapper">
     <!-- Header -->
     <div class="header">
       <button @click="goBack" class="icon-btn" aria-label="Tilbage">
@@ -125,16 +70,14 @@ Sæt i køleskabet i minimum 1-2 timer eller til næste dag. Rør godt igennem o
 
     <!-- image -->
     <div class="image-wrapper">
-        <img :src="recipe.image" alt="Spaghetti Bolognese" class="recipe-image" />
+        <img v-if="imageUrl" :src="imageUrl" :alt="recipe.navn || 'Billede'" class="recipe-image"/>
     </div>
-
-    <AnIndgredientItem />
 
     <!-- Main Content -->
     <div class="content">
       <div class="info-wrapper">
         <div class="title-wrapper">
-          <h1 class="title">Spaghetti Bolognese</h1>
+          <h1 class="title">{{ recipe.navn }}</h1>
 
           <div class="stickers-wrapper">
             <div class="ai-tag">
@@ -157,7 +100,7 @@ Sæt i køleskabet i minimum 1-2 timer eller til næste dag. Rør godt igennem o
                   <path class="i-fill-black" d="M11.5 3C14.0196 3 16.4359 4.00089 18.2175 5.78249C19.9991 7.56408 21 9.98044 21 12.5C21 15.0196 19.9991 17.4359 18.2175 19.2175C16.4359 20.9991 14.0196 22 11.5 22C8.98044 22 6.56408 20.9991 4.78249 19.2175C3.00089 17.4359 2 15.0196 2 12.5C2 9.98044 3.00089 7.56408 4.78249 5.78249C6.56408 4.00089 8.98044 3 11.5 3ZM11.5 4C9.24566 4 7.08365 4.89553 5.48959 6.48959C3.89553 8.08365 3 10.2457 3 12.5C3 14.7543 3.89553 16.9163 5.48959 18.5104C7.08365 20.1045 9.24566 21 11.5 21C12.6162 21 13.7215 20.7801 14.7528 20.353C15.7841 19.9258 16.7211 19.2997 17.5104 18.5104C18.2997 17.7211 18.9258 16.7841 19.353 15.7528C19.7801 14.7215 20 13.6162 20 12.5C20 10.2457 19.1045 8.08365 17.5104 6.48959C15.9163 4.89553 13.7543 4 11.5 4ZM11 7H12V12.42L16.7 15.13L16.2 16L11 13V7Z"/>
               </svg>
             </div>
-            <span>{{ recipe.time }}</span>
+            <span>{{ recipe.tidsestimat }}</span>
           </div>
           <div class="detail-item">
             <button class="accent">
@@ -185,26 +128,18 @@ Sæt i køleskabet i minimum 1-2 timer eller til næste dag. Rør godt igennem o
       <div class="ingridients-wrapper">
         <div class="section-header">
           <h3>Ingredienser</h3>
-          <span>{{ recipe.ingredients.length }} ingredienser</span>
+          <span>{{ ingredientCount }} ingredienser</span>
+
+
         </div>
 
-        <ul class="ingredients">
-          <li v-for="(item, index) in recipe.ingredients" :key="index" class="ingredient-item">
-            <div class="ingredient-left">
-              <img :src="item.image" alt="" class="ingredient-image" />
-              <div>
-                <div class="ingredient-name">
-                  {{ item.name }}
-                  <span v-if="item.offer" class="offer-badge">Tilbudsvare</span>
-                </div>
-                <div class="ingredient-amount">{{ item.amount }}</div>
-              </div>
-            </div>
-            <button class="trash-button">
-              <i class="fas fa-trash-alt"></i>
-            </button>
-          </li>
-        </ul>
+        <div class="ingredients">
+          <AnIndgredientItem
+            v-for="(item, index) in recipe.ingredienser"
+            :key="index"
+            :ingredient="item"
+          />
+        </div>
 
         <button class="primary add-to-list">
           <div class="icon-wrapper">
@@ -224,30 +159,6 @@ Sæt i køleskabet i minimum 1-2 timer eller til næste dag. Rør godt igennem o
         <p class="method">{{ recipe.method }}</p>
       </div>
     </div>
-
-    <!-- Navigation -->
-    <nav class="bottom-nav">
-      <div class="nav-item active">
-        <i class="fas fa-home"></i>
-        <span>Hjem</span>
-      </div>
-      <div class="nav-item">
-        <i class="fas fa-newspaper"></i>
-        <span>fakta avis</span>
-      </div>
-      <div class="nav-item">
-        <i class="fas fa-list"></i>
-        <span>Indkøbsliste</span>
-      </div>
-      <div class="nav-item">
-        <i class="fas fa-qrcode"></i>
-        <span>Scan</span>
-      </div>
-      <div class="nav-item">
-        <i class="fas fa-receipt"></i>
-        <span>Kvittering</span>
-      </div>
-    </nav>
   </div>
 </template>
 
@@ -346,6 +257,10 @@ Sæt i køleskabet i minimum 1-2 timer eller til næste dag. Rør godt igennem o
 
 .ai-tag .icon-wrapper {
   margin-left: -4px;
+}
+
+h3 {
+  color: var(--color-text-black);
 }
 
 .details-wrapper {

@@ -32,7 +32,7 @@ const router = createRouter({
       name: 'PDP', 
       component: PDP, 
       props: true 
-    }
+    } 
   ]
 })
 
